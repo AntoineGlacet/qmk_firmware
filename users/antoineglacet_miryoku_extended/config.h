@@ -3,7 +3,7 @@
 #pragma once
 
 // default but important
-#define TAPPING_TERM 200
+#define TAPPING_TERM 150
 #define TAPPING_TERM_PER_KEY
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
@@ -26,3 +26,10 @@
 #define MOUSEKEY_MAX_SPEED      6
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
+
+
+// Oled stuff
+// The default brightness level of the OLED, from 0 to 255.
+#define OLED_BRIGHTNESS 1
+// Turns off the OLED screen after 60000ms of screen update inactivity. Helps reduce OLED Burn-in. Set to 0 to disable.
+#define OLED_TIMEOUT 60000
