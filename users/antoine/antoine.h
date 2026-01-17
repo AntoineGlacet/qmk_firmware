@@ -1,19 +1,35 @@
 // Copyright 2019 Manna Harbour
 // https://github.com/manna-harbour/miryoku
-// generated -*- buffer-read-only: t -*-
-
-// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+// Modified 2025 for modern QMK
 
 #pragma once
 
 #include QMK_KEYBOARD_H
 
+// Keymap placeholder macros
 #define U_NP KC_NO // key is not present
 #define U_NA KC_NO // present but not available for use
 #define U_NU KC_NO // available but not used
 
-enum layers { COLEMAK, QWERTY, GAMING_QWERTY, GAMING_COLEMAK, BUTTON, MEDIA, NAV, MOUSE, FUN_G, NUM_G, SYM_G, FUN, NUM, SYM };
+// Layer definitions - shared across all keyboards
+enum layers { 
+    COLEMAK, 
+    QWERTY, 
+    GAMING_QWERTY, 
+    GAMING_COLEMAK, 
+    BUTTON, 
+    MEDIA, 
+    NAV, 
+    MOUSE, 
+    FUN_G, 
+    NUM_G, 
+    SYM_G, 
+    FUN, 
+    NUM, 
+    SYM 
+};
 
+// Clipboard macros - OS-specific
 #if defined MIRYOKU_CLIPBOARD_FUN
 #define U_RDO KC_AGIN
 #define U_PST KC_PSTE
@@ -39,3 +55,12 @@ enum layers { COLEMAK, QWERTY, GAMING_QWERTY, GAMING_COLEMAK, BUTTON, MEDIA, NAV
 #define U_CUT S(KC_DEL)
 #define U_UND KC_UNDO
 #endif
+
+// OLED functions (if OLED_ENABLE)
+#ifdef OLED_ENABLE
+oled_rotation_t oled_init_user(oled_rotation_t rotation);
+bool oled_task_user(void);
+#endif
+
+// Per-key tapping term
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record);
