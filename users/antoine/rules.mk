@@ -6,7 +6,7 @@ MOUSEKEY_ENABLE = yes # Mouse keys
 EXTRAKEY_ENABLE = yes # Audio control and System control
 AUTO_SHIFT_ENABLE = no # Auto Shift
 
-SRC += antoineglacet_miryoku_extended.c # keymap
+SRC += antoine.c # keymap
 SRC += features/caps_word.c	# caps_word
 
 # alternative layouts:
